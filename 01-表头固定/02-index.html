@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery插件datatables实现表头固定</title>
+    <style rel="stylesheet" href="./lib/datatables.min.css"></style>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript" src="./lib/datatables.min.js"></script>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      *::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 5px;
+        height: 2px;
+      }
+      *::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      *::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        background-color: unset;
+        border-radius: 5px;
+      }
+
+      #app {
+        width: 600px;
+        height: 200px;
+        margin: 10px auto;
+      }
+      #app table {
+        table-layout: fixed;
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+        border: 1px solid #cccccc;
+        border-spacing: unset;
+        border-top: unset;
+      }
+      #app table > thead > tr > th,
+      #app table > tbody > tr > td {
+        padding: 8px 20px;
+        border-top: 1px solid #cccccc;
+        text-align: center;
+      }
+      #app table > thead > tr > th {
+        background: #ccc !important;
+      }
+      #app table > tbody > tr:nth-of-type(even) {
+        background: rgba(204, 204, 204, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table id="table">
+        <thead>
+          <tr>
+            <th>第一列</th>
+            <th>第二列</th>
+            <th>第三列</th>
+            <th>第四列</th>
+            <th>第五列</th>
+            <th>第六列</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        let $table = $("#table");
+        let data = [];
+        let line = 13;
+
+        function createTrData(data) {
+          let item = {};
+          for (let i = 0; i < 6; i++) {
+            item["item" + i] = getData();
+          }
+          data.push(item);
+        }
+
+        function getData(len) {
+          return (Math.random() * 1000).toFixed(2);
+        }
+
+        for (let i = 0; i < line; i++) {
+          createTrData(data);
+        }
+
+        $("#table").DataTable({
+          data: data,
+          autoWidth: false,
+          pagingType: "full",
+          paging: false,
+          dom: "rt",
+          columns: [
+            { data: "item0" },
+            { data: "item1" },
+            { data: "item2" },
+            { data: "item3" },
+            { data: "item4" },
+            { data: "item5" },
+          ],
+          scrollY: "200px",
+          scrollX: true,
+          scrollCollapse: true,
+          language: {
+            info:
+              "<a class='btn btn-default disabled'>_START_-_END_ of _TOTAL_</a>",
+            infoEmpty:
+              "<a class='btn btn-default disabled'>_START_-_END_ of _TOTAL_</a>",
+            sInfoFiltered: "",
+            sZeroRecords: "无数据",
+            search: "<a><i class='fa fa-search'></i></a> _INPUT_ <br/>",
+            lengthMenu: "_MENU_",
+            paginate: {
+              next: '<i class="fa fa-angle-right title-icon"></i>',
+              previous: '<i class="fa fa-angle-left title-icon"></i>',
+              first: '<i class="fa fa-angle-double-left title-icon"></i>',
+              last: '<i class="fa fa-angle-double-right title-icon"></i>',
+            },
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

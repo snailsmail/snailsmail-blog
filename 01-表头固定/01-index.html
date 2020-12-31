@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>纯css实现表头固定</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      *::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 5px;
+        height: 2px;
+      }
+      *::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      *::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        background-color: unset;
+        border-radius: 5px;
+      }
+
+      #app {
+        width: 600px;
+        height: 200px;
+        margin: 10px auto;
+        overflow-y: auto;
+      }
+      #app table#table {
+        table-layout: fixed;
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+        border: 1px solid #cccccc;
+        border-spacing: unset;
+        border-top: unset;
+      }
+      #app table#table > thead > tr > th,
+      #app table#table > thead > tr > td {
+        padding: 8px 20px;
+        border-top: 1px solid #cccccc;
+        text-align: center;
+      }
+      #app table#table > thead > tr > th {
+        position: sticky;
+        top: 0;
+        left: 0;
+        background: #ccc !important;
+      }
+      #app table#table > thead > tr:nth-of-type(odd) {
+        background: rgba(204, 204, 204, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table id="table">
+        <thead>
+          <tr>
+            <th>第一列</th>
+            <th>第二列</th>
+            <th>第三列</th>
+            <th>第四列</th>
+            <th>第五列</th>
+            <th>第六列</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+    <script type="text/javascript" src="./utils/index.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        let table = document.getElementById("table");
+        let line = 10;
+
+        function createTr(table) {
+          let row = table.insertRow(table.FetchRowCount);
+          for (let i = 0; i < 6; i++) {
+            row.insertCell(i).innerHTML = getData();
+          }
+        }
+
+        for (let i = 0; i < line; i++) {
+          createTr(table);
+        }
+      };
+    </script>
+  </body>
+</html>

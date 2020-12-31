@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue组件库elementUI实现表头固定</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      *::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 5px;
+        height: 2px;
+      }
+      *::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      *::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        background-color: unset;
+        border-radius: 5px;
+      }
+
+      #app {
+        width: 600px;
+        height: 200px;
+        margin: 10px auto;
+      }
+      #app table {
+        table-layout: fixed;
+        width: 100%;
+        height: 200px;
+        margin: 0 auto;
+        border: 1px solid #cccccc;
+        border-spacing: unset;
+        border-top: unset;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <el-table :data="tableData" height="200" border>
+        <el-table-column prop="item0" label="第一列"> </el-table-column>
+        <el-table-column prop="item1" label="第二列"> </el-table-column>
+        <el-table-column prop="item2" label="第三列"> </el-table-column>
+        <el-table-column prop="item3" label="第四列"> </el-table-column>
+        <el-table-column prop="item4" label="第五列"> </el-table-column>
+        <el-table-column prop="item5" label="第六列"> </el-table-column>
+      </el-table>
+    </div>
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script type="text/javascript" src="./utils/index.js"></script>
+    <script type="text/javascript">
+      let data = [];
+      let line = 13;
+
+      function createTrData(data) {
+        let item = {};
+        for (let i = 0; i < 6; i++) {
+          item["item" + i] = getData();
+        }
+        data.push(item);
+      }
+
+      for (let i = 0; i < line; i++) {
+        createTrData(data);
+      }
+
+      new Vue({
+        el: "#app",
+        data() {
+          return {
+            tableData: data,
+          };
+        },
+      });
+    </script>
+  </body>
+</html>
