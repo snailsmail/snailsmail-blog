@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>纯css另一种实现方式</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      *::-webkit-scrollbar {
+        /*滚动条整体样式*/
+        width: 5px;
+        height: 2px;
+      }
+      *::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+      *::-webkit-scrollbar-track {
+        /*滚动条里面轨道*/
+        background-color: unset;
+        border-radius: 5px;
+      }
+
+      #app {
+        width: 600px;
+        height: 200px;
+        margin: 10px auto;
+      }
+      #app table {
+        table-layout: fixed;
+        width: 100%;
+        margin: 0 auto;
+        border: 1px solid #cccccc;
+        border-spacing: unset;
+        border-top: unset;
+      }
+      #app table > thead > tr > th,
+      #app table > tbody > tr > td {
+        padding: 8px 20px;
+        border-top: 1px solid #cccccc;
+        text-align: center;
+      }
+      #app table > tbody > tr:nth-of-type(odd) {
+        background: rgba(204, 204, 204, 0.4);
+      }
+      #app .table-wrap {
+        overflow-y: auto;
+        height: 100%;
+      }
+      #app table#table > thead > tr {
+        height: 0;
+        visibility: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>第一列</th>
+            <th>第二列</th>
+            <th>第三列</th>
+            <th>第四列</th>
+            <th>第五列</th>
+            <th>第六列</th>
+          </tr>
+        </thead>
+      </table>
+      <div class="table-wrap">
+        <table id="table">
+          <thead>
+            <tr>
+              <th>第一列</th>
+              <th>第二列</th>
+              <th>第三列</th>
+              <th>第四列</th>
+              <th>第五列</th>
+              <th>第六列</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./utils/index.js"></script>
+    <script type="text/javascript">
+      window.onload = function () {
+        let table = document.getElementById("table");
+        let line = 10;
+
+        function createTr(table) {
+          var tr = document.createElement("tr");
+          var td = null;
+          for (let i = 0; i < 6; i++) {
+            td = document.createElement("td");
+            td.innerHTML = getData();
+            tr.appendChild(td);
+          }
+          document.getElementById("table").children[1].appendChild(tr);
+        }
+
+        for (let i = 0; i < line; i++) {
+          createTr(table);
+        }
+      };
+    </script>
+  </body>
+</html>

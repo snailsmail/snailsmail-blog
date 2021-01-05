@@ -25,6 +25,15 @@
 
 ![效果图](./imgs/vue组件库elementUI实现表头固定.gif)
 
+### 4.纯css另一种实现方式
+    由datatables的表头固定启发到:
+    一共两个table,一个只是用于于显示表头的,另一个是进行滚动的
+    用于滚动的table表头高度设为0,外层多包一层div,用于设置overflow-y:auto;以及高度,可以让table进行滚动.  
+    缺点:有一点的错位
+
+![效果图](./imgs/纯css另一种实现方式.gif)
+
+### 5.源码
 
     源码地址:https://github.com/snailsmail/snailsmail-blog/tree/develop
 
