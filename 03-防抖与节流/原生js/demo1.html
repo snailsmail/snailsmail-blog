@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖与节流</title>
+    <style>
+        body {
+            overflow-y: auto;
+        }
+        #app {
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/javascript">
+    window.onload = function(){
+        window.onscroll = function() {
+            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+            console.log('滚定位置:' + scrollTop);
+        }
+    }
+    </script>
+</body>
+</html>

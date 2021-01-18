@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>节流</title>
+    <style>
+      body {
+        overflow-y: auto;
+      }
+      #app {
+        height: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/javascript">
+      window.onload = function () {
+        function throttle(fn, delay) {
+          let valid = true;
+          return function () {
+          let context = this
+          let args = arguments
+            if (!valid) {
+              return false;
+            }
+            valid = false;
+            setTimeout(function() {
+              fn.apply(context, args);
+              valid = true;
+            }, delay);
+          };
+        }
+
+        function scroll(a) {
+          let scrollTop =
+            document.body.scrollTop || document.documentElement.scrollTop;
+          console.log("滚定位置: " + a + ' - ' + scrollTop);
+        }
+
+        let myScorll = throttle(scroll, 1000);
+
+        window.onscroll = function() {
+            myScorll('aa')
+        };
+      };
+    </script>
+  </body>
+</html>

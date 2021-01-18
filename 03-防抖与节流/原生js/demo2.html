@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防抖</title>
+    <style>
+      body {
+        overflow-y: auto;
+      }
+      #app {
+        height: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/javascript">
+      window.onload = function () {
+        function debounce(fn, delay) {
+          let timer = null;
+          return function () {
+            if (timer) {
+              clearTimeout(timer);
+            }
+            timer = setTimeout(function () {
+              fn();
+              timer = null;
+            }, delay);
+          };
+        }
+
+        function scroll() {
+          let scrollTop =
+            document.body.scrollTop || document.documentElement.scrollTop;
+          console.log("滚定位置:" + scrollTop);
+        }
+
+        window.onscroll = debounce(scroll, 1000);
+      };
+    </script>
+  </body>
+</html>
