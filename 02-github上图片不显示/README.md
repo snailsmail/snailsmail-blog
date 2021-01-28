@@ -2,7 +2,10 @@
 
 ### 1.出现的问题,图片不显示
 
+<center>
+
 ![效果图](./imgs/github上图片报错.png)
+</center>
 
 ### 2.需要通过修改hosts文件,明确指向github的ip地址绕过DNS解析
 
@@ -51,7 +54,10 @@ sudo chmod a+w filename
 
 ### 4.刷新github,图片加载出来了
 
+<center>
+
 ![效果图](./imgs/github上图片加载出来了.png)
+</center>
 
 参考链接:https://www.jianshu.com/p/cca867f2b3d2
 

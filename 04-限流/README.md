@@ -76,4 +76,7 @@ setInterval(function () {
 
 ### 4.测试结果
 
+<center>
+
 ![效果图](./imgs/限流.gif)
+</center>

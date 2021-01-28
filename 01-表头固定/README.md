@@ -4,7 +4,10 @@
 
     属性的兼容性具体如下:
 
+<center>
+
 ![兼容性](./imgs/position:sticky兼容性.png)
+</center>
 
     主要实现:
 
@@ -14,7 +17,10 @@
 
 效果图:
 
+<center>
+
 ![效果图](./imgs/纯css实现固定表头.gif)
+</center>
 
 ### 2.jQuery插件datatables实现
 
@@ -35,7 +41,10 @@
 
 效果图:
 
+<center>
+
 ![效果图](./imgs/jQuery插件datatables实现表头固定.gif)
+</center>
 
 ### 3.vue组件库elementUI实现
 
@@ -47,7 +56,10 @@
 
 效果图:
 
+<center>
+
 ![效果图](./imgs/vue组件库elementUI实现表头固定.gif)
+</center>
 
 ### 4.纯css另一种实现方式
     由datatables的表头固定启发到:
@@ -57,5 +69,8 @@
 
     缺点:有一点的错位
 
+<center>
+
 ![效果图](./imgs/纯css另一种实现方式.gif)
+</center>
 

@@ -16,7 +16,10 @@ window.onload = function(){
 
 效果图:
 
+<center>
+
 ![效果图](./imgs/实时计算滚动高度.gif)
+</center>
 
     滚动过程中实时显示滚动位置,对onscroll函数的调用频率太高了;那怎么处理这种高频调用?
 
@@ -49,7 +52,10 @@ window.onload = function(){
 
 效果图:
 
+<center>
+
 ![效果图](./imgs/抖动效果图.gif)
+</center>
 
     滚动后停止1s后,打印出当前的滚动位置.
 
@@ -104,7 +110,10 @@ window.onload = function(){
 
 效果图:
 
+<center>
+
 ![效果图](./imgs/节流效果图.gif)
+</center>
 
 ### 3.升级
 
@@ -184,7 +193,10 @@ window.onload = function () {
 
 效果图:
 
+<center>
+
 ![效果图](./imgs/防抖被调用函数传参.gif)
+</center>
 
 ### 4.总结
 
