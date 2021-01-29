@@ -34,7 +34,7 @@
 
 ### 2.测试
 
-    根目录下新建 `index.html` ,并引入 `dist` 下的 `bundle.js` 文件
+  根目录下新建 `index.html` ,并引入 `dist` 下的 `bundle.js` 文件
 
 <center>
 
