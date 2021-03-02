@@ -80,3 +80,6 @@ setInterval(function () {
 
 ![效果图](./imgs/限流.gif)
 </center>
+
+##### [返回](https://github.com/snailsmail/snailsmail-blog)
+##### [限流－掘金地址](https://juejin.cn/post/6921621320832647181)

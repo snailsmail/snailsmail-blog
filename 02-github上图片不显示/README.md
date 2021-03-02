@@ -59,6 +59,9 @@ sudo chmod a+w filename
 ![效果图](./imgs/github上图片加载出来了.png)
 </center>
 
-参考链接:https://www.jianshu.com/p/cca867f2b3d2
+##### [参考链接](https://www.jianshu.com/p/cca867f2b3d2)
+
+##### [返回](https://github.com/snailsmail/snailsmail-blog)
+##### [github上图片不显示－掘金地址](https://juejin.cn/post/6915212112662904845)
 
 

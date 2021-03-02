@@ -204,5 +204,7 @@ window.onload = function () {
     节流：单位时间内，对函数进行了多次调用，只第一次有效．
 
 
-### 参考
- https://segmentfault.com/a/1190000018428170
+##### [参考链接](https://segmentfault.com/a/1190000018428170) 
+
+##### [返回](https://github.com/snailsmail/snailsmail-blog)
+##### [防抖与节流－掘金地址](https://juejin.cn/post/6918948291459678221)
